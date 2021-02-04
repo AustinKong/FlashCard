@@ -1,0 +1,23 @@
+
+<mat-card>
+  <ng-container *ngIf="card.kanji!='';then kanji else hiragana"></ng-container>
+
+  <ng-template #kanji>
+    <mat-card-title style="font-size:50px; padding-top: 20%;">{{ card.kanji }}</mat-card-title>
+  </ng-template>
+
+  <ng-template #hiragana>
+    <mat-card-title style="font-size:50px; padding-top: 20%;">{{ card.hiragana }}</mat-card-title>
+  </ng-template>
+
+  <mat-form-field>
+    <mat-label>Answer</mat-label>
+    <input type="text" [(ngModel)]='enteredAnswer' matInput placeholder="Type your answer in plain English" style="font-size: 20px;">
+  </mat-form-field>
+
+  <br>
+
+  <button mat-raised-button color = 'accent' (click) = "onSkip()">Skip</button>
+  <button mat-raised-button color = 'accent' style="margin-left: 5%;" (click) = "onSubmit()">Submit</button>
+  <button mat-raised-button color = 'accent' style="margin-left: 5%;" (click) = "onHint()">Hint</button>
+</mat-card>
